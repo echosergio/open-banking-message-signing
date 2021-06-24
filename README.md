@@ -38,9 +38,11 @@ private String createDetachedJws(String serializedJws) {
 
 To demonstrate, take the following attached JWS and deserialize it in https://jwt.io:
 
-`eyJiNjQiOmZhbHNlLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCI6MTU0MzU4NzI2MiwiY3JpdCI6WyJiNjQiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCIsImh0dHA6XC9cL29wZW5iYW5raW5nLm9yZy51a1wvaXNzIl0sImtpZCI6Im5XTmpvQlZtRkVoa0VJLVlQbWdPWGxUbmlUVSIsInR5cCI6IkpPU0UiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lzcyI6IkM9R0IsIE89T3BlbkJhbmtpbmcsIE9VPTAwMTU4MDAwMDFaRVozV0FBWCwgQ049NHRIQ0ZZemhtUlRwNWVkN1RyNUlONiIsImFsZyI6IlJTMjU2In0.eyJoZWxsbyI6IndvcmxkIn0.KFmPmaOf3FwYLoOL2IjzhG00LMBCFOPQPOofOH21SIUKAmMmtuB8yccltLFT4lZ5m8EG0Yg9PFc1bbHQtZCwgoVGW9N8hzx5eNJ4sHJp6yIAo2QpXIyukKkRhnoxCvJVmi4hgkFW7pkVLDvOXTg8QORtf7ZEXD86ACCGE5KKq6d6jXnRYUmUusDBlDw0IhWyfvzfTL6Jhhe3Q9wYDlcGH5vvZgfJiRAOnDRw7rDDJ79hDJbP_CH1Jkj5yhGN1MthuSIdCXrM5BAqSZ5VRrNojgMI29FApIP_TMCzWzHKBysjIovtAJnPF3jBjQdChruEGK3PPl5DV3W6HucOtDfU4g`
+```
+eyJiNjQiOmZhbHNlLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCI6MTU0MzU4NzI2MiwiY3JpdCI6WyJiNjQiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCIsImh0dHA6XC9cL29wZW5iYW5raW5nLm9yZy51a1wvaXNzIl0sImtpZCI6Im5XTmpvQlZtRkVoa0VJLVlQbWdPWGxUbmlUVSIsInR5cCI6IkpPU0UiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lzcyI6IkM9R0IsIE89T3BlbkJhbmtpbmcsIE9VPTAwMTU4MDAwMDFaRVozV0FBWCwgQ049NHRIQ0ZZemhtUlRwNWVkN1RyNUlONiIsImFsZyI6IlJTMjU2In0.eyJoZWxsbyI6IndvcmxkIn0.KFmPmaOf3FwYLoOL2IjzhG00LMBCFOPQPOofOH21SIUKAmMmtuB8yccltLFT4lZ5m8EG0Yg9PFc1bbHQtZCwgoVGW9N8hzx5eNJ4sHJp6yIAo2QpXIyukKkRhnoxCvJVmi4hgkFW7pkVLDvOXTg8QORtf7ZEXD86ACCGE5KKq6d6jXnRYUmUusDBlDw0IhWyfvzfTL6Jhhe3Q9wYDlcGH5vvZgfJiRAOnDRw7rDDJ79hDJbP_CH1Jkj5yhGN1MthuSIdCXrM5BAqSZ5VRrNojgMI29FApIP_TMCzWzHKBysjIovtAJnPF3jBjQdChruEGK3PPl5DV3W6HucOtDfU4g
+```
 
-As you’ll see it contains a simple payload:
+As you'll see it contains a simple payload:
 
 ```json
 {
@@ -50,7 +52,9 @@ As you’ll see it contains a simple payload:
 
 Following **detachment**, it will become:
 
-`eyJiNjQiOmZhbHNlLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCI6MTU0MzU4NzI2MiwiY3JpdCI6WyJiNjQiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCIsImh0dHA6XC9cL29wZW5iYW5raW5nLm9yZy51a1wvaXNzIl0sImtpZCI6Im5XTmpvQlZtRkVoa0VJLVlQbWdPWGxUbmlUVSIsInR5cCI6IkpPU0UiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lzcyI6IkM9R0IsIE89T3BlbkJhbmtpbmcsIE9VPTAwMTU4MDAwMDFaRVozV0FBWCwgQ049NHRIQ0ZZemhtUlRwNWVkN1RyNUlONiIsImFsZyI6IlJTMjU2In0..KFmPmaOf3FwYLoOL2IjzhG00LMBCFOPQPOofOH21SIUKAmMmtuB8yccltLFT4lZ5m8EG0Yg9PFc1bbHQtZCwgoVGW9N8hzx5eNJ4sHJp6yIAo2QpXIyukKkRhnoxCvJVmi4hgkFW7pkVLDvOXTg8QORtf7ZEXD86ACCGE5KKq6d6jXnRYUmUusDBlDw0IhWyfvzfTL6Jhhe3Q9wYDlcGH5vvZgfJiRAOnDRw7rDDJ79hDJbP_CH1Jkj5yhGN1MthuSIdCXrM5BAqSZ5VRrNojgMI29FApIP_TMCzWzHKBysjIovtAJnPF3jBjQdChruEGK3PPl5DV3W6HucOtDfU4g`
+```
+eyJiNjQiOmZhbHNlLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCI6MTU0MzU4NzI2MiwiY3JpdCI6WyJiNjQiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lhdCIsImh0dHA6XC9cL29wZW5iYW5raW5nLm9yZy51a1wvaXNzIl0sImtpZCI6Im5XTmpvQlZtRkVoa0VJLVlQbWdPWGxUbmlUVSIsInR5cCI6IkpPU0UiLCJodHRwOlwvXC9vcGVuYmFua2luZy5vcmcudWtcL2lzcyI6IkM9R0IsIE89T3BlbkJhbmtpbmcsIE9VPTAwMTU4MDAwMDFaRVozV0FBWCwgQ049NHRIQ0ZZemhtUlRwNWVkN1RyNUlONiIsImFsZyI6IlJTMjU2In0..KFmPmaOf3FwYLoOL2IjzhG00LMBCFOPQPOofOH21SIUKAmMmtuB8yccltLFT4lZ5m8EG0Yg9PFc1bbHQtZCwgoVGW9N8hzx5eNJ4sHJp6yIAo2QpXIyukKkRhnoxCvJVmi4hgkFW7pkVLDvOXTg8QORtf7ZEXD86ACCGE5KKq6d6jXnRYUmUusDBlDw0IhWyfvzfTL6Jhhe3Q9wYDlcGH5vvZgfJiRAOnDRw7rDDJ79hDJbP_CH1Jkj5yhGN1MthuSIdCXrM5BAqSZ5VRrNojgMI29FApIP_TMCzWzHKBysjIovtAJnPF3jBjQdChruEGK3PPl5DV3W6HucOtDfU4g
+```
 
 # JSON Web Signature (JWS) and JWS Detached (Explanation)
 
@@ -58,14 +62,17 @@ Following **detachment**, it will become:
 
 There are two defined serializations for JWSs: a compact (described in this article) and a JSON.
 
-The compact serialised JWS is a string containing three parts (in order) joined with a dot (“.”):
+The compact serialised JWS is a string containing three parts (in order) joined with a dot ("."):
 
 - Header
 - Payload
 - Signature
 
 Example of the compact serialised JWS string:
-`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjIyMTgyMzkwMjIsIm5hbWUiOiJUb21hc3ogWndpZXJ6Y2hvxYQifQ.t3VhQ7QsILDuV_HNFSMI-Fb2FoT7fuzalpS5AH8A9c0`
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjIyMTgyMzkwMjIsIm5hbWUiOiJUb21hc3ogWndpZXJ6Y2hvxYQifQ.t3VhQ7QsILDuV_HNFSMI-Fb2FoT7fuzalpS5AH8A9c0
+```
 
 Each part is BASE64URL encoded.
 The Header describe the digital signature or message authentication code (MAC) applied to the the Payload and optionally additional properties of the JWS.
@@ -81,61 +88,61 @@ Header part before encoding is a JSON structure (example below):
 
 The Header parameter names (object keys) within the Header must be unique. There are registered Header parameter names:
 
-- “alg” (required) — algorithm, which identifies the cryptographic
+- "alg" (required) — algorithm, which identifies the cryptographic
   algorithm used to secure the JWS;  
-  It can be set to ‘none’, which indicates that the Signature must be an empty string!
+  It can be set to 'none', which indicates that the Signature must be an empty string!
 
-- “jku” — (optional) JWK Set URL is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS;
+- "jku" — (optional) JWK Set URL is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWS;
 
-- “jwk” — (optional) JSON Web Key is the public key that corresponds to the private key used to digitally sign the JWS. This public key is represented as a JSON Web Key [JWK];
+- "jwk" — (optional) JSON Web Key is the public key that corresponds to the private key used to digitally sign the JWS. This public key is represented as a JSON Web Key [JWK];
 
-- “kid” — (optional) key ID is a hint indicating which key was used to secure the JWS. It can be used to inform recipient that key is changed;
+- "kid" — (optional) key ID is a hint indicating which key was used to secure the JWS. It can be used to inform recipient that key is changed;
 
-- “x5u” — (optional) X.509 URL is a URI that points to a resource for the X.509 public key certificate or certificate chain corresponding to the private key used to digitally sign the JWS;
+- "x5u" — (optional) X.509 URL is a URI that points to a resource for the X.509 public key certificate or certificate chain corresponding to the private key used to digitally sign the JWS;
 
-- “x5c” — (optional) X.509 certificate chain contains the X.509 public key certificate or certificate chain corresponding to the private key used to digitally sign the JWS;
+- "x5c" — (optional) X.509 certificate chain contains the X.509 public key certificate or certificate chain corresponding to the private key used to digitally sign the JWS;
 
-- “x5t” — (optional) X.509 certificate SHA-1 thumbprint (fingerprint) is a
+- "x5t" — (optional) X.509 certificate SHA-1 thumbprint (fingerprint) is a
   base64url-encoded SHA-1 thumbprint (a.k.a. digest) of the DER
   encoding of the X.509 public certificate [RFC5280] corresponding to the private key used to digitally sign the JWS;
 
-- “x5t#S256” — (optional) X.509 certificate SHA-256 thumbprint (fingerprint) is a base64url-encoded SHA-256 thumbprint (a.k.a. digest)
+- "x5t#S256" — (optional) X.509 certificate SHA-256 thumbprint (fingerprint) is a base64url-encoded SHA-256 thumbprint (a.k.a. digest)
   of the DER encoding of the X.509 public certificate corresponding
   to the private key used to digitally sign the JWS;
 
-- “typ” — (optional) type is used by JWS applications to declare the media type of the complete JWS;
+- "typ" — (optional) type is used by JWS applications to declare the media type of the complete JWS;
 
-- “cty” — (optional) content type is used by JWS applications
+- "cty" — (optional) content type is used by JWS applications
   to declare the media type of the Payload.
 
 In our example header, we can see that JWS type is JSON Web Token (JWT) and that Payload is secured by HS256 (HMAC with SHA-256) cryptographic algorithm.
 
 **The payload** can be any content. It can be JSON but it is not needed.
 
-**The signature** is computed in the manner defined for the particular algorithm being used (and declared in the Header) from `ASCII(BASE64URL(UTF8(JWS Protected Header)) || ‘.’ ||BASE64URL(JWS Payload))`.
+**The signature** is computed in the manner defined for the particular algorithm being used (and declared in the Header) from `ASCII(BASE64URL(UTF8(JWS Protected Header)) || '.' ||BASE64URL(JWS Payload))`.
 
 Important note: Do not confuse BASE64URL with BASE64!  
 In BASE64URL:
 
-- all trailing ‘=’ are removed
-- ‘+’ is replaced by ‘-’
-- ‘/’ is replaced by ‘\_’.
+- all trailing '=' are removed
+- '+' is replaced by '-'
+- '/' is replaced by '\_'.
 
 ## JWS Detached is a variation of JWS that allows you to sign content (body) of HTTP request or response without its modification.
 
-The HTTP header “x-jws signature” is added, which contains data allowing to check whether the message has not been changed on way from the sender to the recipient.
+The HTTP header "x-jws signature" is added, which contains data allowing to check whether the message has not been changed on way from the sender to the recipient.
 
 JWS Detached generation algorithm is very simple:
 
 1. Generate a standard JWS using compact serialization using HTTP body as a payload,
 2. Turn the middle part (Payload) into an empty string,
-3. Put final string in the HTTP header “x-jws signature”
+3. Put final string in the HTTP header "x-jws signature"
 
 Example of the JWS Detached string: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..t3VhQ7QsILDuV_HNFSMI-Fb2FoT7fuzalpS5AH8A9c0`
 
 Validation HTTP message with JWS Detached is simple too:
 
-1. Get the HTTP header “x-jws signature”,
+1. Get the HTTP header "x-jws signature",
 2. Get BASE64URL HTTP body
 3. Put generate string 1) into the Payload section
 4. Validate JWS
